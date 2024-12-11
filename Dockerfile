@@ -12,8 +12,8 @@ RUN apt-get update && \
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (if exists) first to leverage caching
-COPY package.json package-lock.json ./
+# Copy only package.json (ignore package-lock.json if it doesn't exist)
+COPY package.json ./
 
 # Install dependencies using npm
 RUN npm install
